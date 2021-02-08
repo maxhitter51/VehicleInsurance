@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Vehicle Insurance Prediction Software</title>
+</head>
+
+<body>
+<style>
+body {background-color: MediumSeaGreen;}
+
+.form {
+
+background-color: HoneyDew;
+text-align: right-algin;
+margin-left : 20%;
+margin-right : 20%;
+font-size : 120%;
+padding : 50px;
+}
+.submit{
+text-align: center
+}
+</style>
+
+<h1 style="text-align:center">Vehicle Insurance Software</h1>
+<div class="form">
+
+<form id="form" name="form" method="post" action="{{ url_for("prediction")}}">
+<h3>Enter User Details : </h3>
+
+<label for="Vehicle_Age"><b>Vehicle Age : </b></label>
+<select name="Vehicle_Age" id="Vehicle_Age" required>
+<option disabled selected value> -- select an option -- </option>
+<option value="0">&gt; 2 Years</option>
+<option value="2">1-2 Years</option>
+<option value="1">&lt; 1 Years</option>
+</select><br><br>
+
+<b>Gender : </b>
+<input type="radio" name="Gender" value="1" id="Male" required/>
+<label for="Male">Male</label>
+<input type="radio" name="Gender" value="0" id="Female" required/>
+<label for="Female">Female</label><br><br>
+
+
+<b>Driving Licence : </b>
+<input type="radio" name="Driving_Licence" value="1" id="Driving_Licence_Yes" required/>
+<label for="Driving_Licence_Yes">Yes</label>
+<input type="radio" name="Driving_Licence" value="0" id="Driving_Licence_No" required/>
+<label for="Driving_Licence_No">No</label><br><br>
+        
+        
+<b>Previously Insured : </b>
+<input type="radio" name="Previously_Insured" value="1" id="Previously_Insured_Yes" required/>
+<label for="Previously_Insured_Yes">Yes</label>
+<input type="radio" name="Previously_Insured" value="0" id="Previously_Insured_No" required/>
+<label for="Previously_Insured_No">No</label><br><br>
+
+
+<b>Vehicle Damage : </b>
+<input type="radio" name="Vehicle_Damage" value="1" id="Vehicle_Damage_Yes" required/>
+<label for="Vehicle_Damage_Yes">Yes</label>
+<input type="radio" name="Vehicle_Damage" value="0" id="VehicleDamage_No" required/>
+<label for="VehicleDamage_No">No</label><br><br>
+
+
+<label for="Age"><b>Age : </b></label>
+<input type="number" name="Age" id="Age" required/><br><br>
+
+
+<label for="Annual_Premium"><b>Annual_Premium : </b></label>
+<input type="number" name="Annual_Premium" id="Annual_Premium" required/><br><br>
+
+<div class="Submit">
+ <button type="submit" class="btn btn-primary btn-block btn-large">     PREDICT     </button><br><br>
+
+{{ prediction_text }}
+</div>
+</form>
+</div>
+</body>
+</html>
